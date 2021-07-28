@@ -1,0 +1,13 @@
+<!-- <div class="dropzone">
+    <input type="file" #filedropzoneref/>
+    <label for="filedropzoneref">Upload File or just drag or drop image here</label>
+</div> -->
+<div class="orgdetails">
+    <label>Organisation Logo</label>
+    <br/>
+    <img *ngIf="orgImage" src="{{orgImage}}">
+    <button *ngIf="!orgImage" (click)="openModal(content)">Upload new Logo</button>
+</div>
+<ng-template #content let-modal>
+    <imageupload (finalImage)="getFinalImage($event)"></imageupload>
+</ng-template>

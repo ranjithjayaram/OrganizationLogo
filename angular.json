@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "orgImageuploader"
+  "defaultProject": "orgImageuploader",
+  "cli": {
+    "analytics": false
+  }
 }

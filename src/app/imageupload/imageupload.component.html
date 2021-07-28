@@ -1,0 +1,26 @@
+<div class="modalcontent">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Change Organization Image</h4>
+    <label *ngIf="!showDropzone" class="reupload">Re-upload Image</label>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="dropzone" *ngIf="showDropzone">
+      <input type="file" #fileinputref id="fileinputref" accept="image/*" hidden (change)="handleFileInput($event)">
+      <label for="fileinputref" class="uploadlabel"><img src="../../assets/images/uploadbutton.png"
+          class="iconupload">Upload File</label>
+      <label> Or just drag and drop image here</label>
+    </div>
+    <div *ngIf="!showDropzone">
+      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4"
+        [resizeToWidth]="256" format="png" (imageCropped)="imageCropped($event)">
+      </image-cropper>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button cancel" class="btn btn-outline-dark">Cancel</button>
+    <button type="button submit" class="btn btn-outline-dark" (click)="saveCroppedImage()">Save Changes</button>
+  </div>
+</div>
