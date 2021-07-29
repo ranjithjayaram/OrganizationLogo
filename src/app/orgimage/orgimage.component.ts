@@ -8,17 +8,25 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 export class OrgimageComponent implements OnInit {
-  public orgImage:any;
+  public orgImage: any;
+  public orgImageName: string='';
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
 
   }
-  openModal(content:any){
-    this.modalService.open(content, { centered: true });
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
-  getFinalImage(img:any){
-    this.orgImage= img;
-   this.modalService.dismissAll();
+  getFinalImage(img: any) {
+    this.orgImage = img[0];
+    this.orgImageName= img[1];
+  }
+  get closeModalFn() {
+    return this.closeModal.bind(this);
+}
+
+  closeModal() {
+    this.modalService.dismissAll();
   }
 }

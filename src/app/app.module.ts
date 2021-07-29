@@ -6,11 +6,13 @@ import { OrgimageComponent } from './orgimage/orgimage.component';
 import { ImageuploadComponent } from './imageupload/imageupload.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { DropzoneDirective } from './directives/dropzone.directive';
 @NgModule({
   declarations: [
     AppComponent,
     OrgimageComponent,
-    ImageuploadComponent
+    ImageuploadComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
